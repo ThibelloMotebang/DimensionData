@@ -33,6 +33,7 @@ namespace DimensionData
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            services.AddDbContext<Models.ApplicationUser>(options => options.UseSqlServer(Configuration.GetConnectionString("Myconnection")));
             services.AddDbContext<DimensionDataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddRazorPages();
         }
