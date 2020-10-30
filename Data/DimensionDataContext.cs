@@ -28,11 +28,12 @@ namespace DimensionData.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-#pragma warning disable
+#pragma warning disable CS1030 // #warning directive
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Initial Catalog=DimensionData;Data Source=LAPTOP-PERHG9NA\\SQLEXPRESS;Trusted_Connection=true");
+#pragma warning restore CS1030 // #warning directive
             }
-#pragma warning disable
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

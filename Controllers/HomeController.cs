@@ -9,7 +9,9 @@ using DimensionData.Models;
 
 namespace DimensionData.Controllers
 {
+#pragma warning disable
     public class HomeController : Controller
+#pragma warning restore
     {
         private readonly ILogger<HomeController> _logger;
 
@@ -28,10 +30,21 @@ namespace DimensionData.Controllers
             return View();
         }
 
+        public IActionResult Employees()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is HomeController controller &&
+                   EqualityComparer<ILogger<HomeController>>.Default.Equals(_logger, controller._logger);
         }
     }
 }

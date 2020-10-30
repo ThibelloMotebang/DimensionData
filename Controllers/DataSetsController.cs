@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DimensionData.Data;
 using DimensionData.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DimensionData.Controllers
 {
@@ -20,12 +21,14 @@ namespace DimensionData.Controllers
         }
 
         // GET: DataSets
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.DataSet.ToListAsync());
         }
 
         // GET: DataSets/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -44,6 +47,7 @@ namespace DimensionData.Controllers
         }
 
         // GET: DataSets/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -66,6 +70,7 @@ namespace DimensionData.Controllers
         }
 
         // GET: DataSets/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -117,6 +122,7 @@ namespace DimensionData.Controllers
         }
 
         // GET: DataSets/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
