@@ -122,7 +122,7 @@ namespace DimensionData.Controllers
         }
 
         // GET: DataSets/Delete/5
-        [Authorize]
+
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)

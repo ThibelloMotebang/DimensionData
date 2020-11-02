@@ -1,3 +1,7 @@
-﻿@using DimensionData
+﻿@using Microsoft.AspNetCore.Identity
+@using DimensionData
+@using DimensionData.Data
 @using DimensionData.Models
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
